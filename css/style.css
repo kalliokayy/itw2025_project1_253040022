@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+    height: 60px;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto 0;
+}
+
+nav h1 {
+    margin-left: 2.5%;
+}
+
+nav ul {
+    display: flex;
+    gap: 10px;
+    margin-right: 2.5%;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+/* bagian foto profil */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 0;
+    background-color: rgb(205, 77, 77);
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid black;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile-container h2 {
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.profile-container p {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* About */
+.about {
+    padding: 100px 10% ;
+    background-color:  rgb(205, 77, 77);
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1000px;
+}
+
+.about-img img {
+    width: 375px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px grey;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    flex: 1;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-text p{
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: black;
+    text-align: justify;
+    margin-top: 10px;
+}
+
+/*Animasi saat layar di perkecil*/
+
+@media (max-width: 768px) {
+    .about-container{
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .about-img {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .about-img img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 15px;    
+    }  
+
+    .about-text {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+}
+
+
