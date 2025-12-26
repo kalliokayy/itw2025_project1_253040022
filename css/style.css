@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+html, body {
+     max-width: 100%;
+     overflow-x: 0;
+}
+
 nav {
     width: 100%;
     display: flex;
@@ -135,4 +140,235 @@ nav ul li {
     }
 }
 
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
 
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -6.5px;
+    top: -5px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: rgb(36, 17, 17);
+    border-radius: 3px;
+    transition: 0.5s;
+}
+
+/* Hamburger Menu Animation */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~span:nth-child(2) {
+    transform: rotate(45deg)translate(-1px, -1px);
+}
+.menu-toggle input:checked ~span:nth-child(4) {
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked ~span:nth-child(3) {
+    transform: scale(0);
+}
+
+/* ukuran tablet */
+@media screen and (max-width: 768px) {
+    nav ul {  
+        width: 50%;
+    }
+}
+
+/* ukuran mobile */
+@media screen and (max-width: 576px) {
+    .menu-toggle {
+        display: flex;
+        z-index: 1000;
+        margin-right: 20px;
+    }
+
+    .menu-toggle input:checked ~ span {
+        background-color: white;
+    }
+    
+    nav ul {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 70%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        background-color:  rgb(150, 20, 20);
+        z-index: 10;
+        transform: translateX(100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+
+    nav ul.slide {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    nav ul li a {
+        font-size: 2rem;
+        color: white; /* Ubah ke putih agar terlihat jelas */
+        font-weight: bold;
+    }
+}
+
+/* Projects */
+.projects {
+    padding: 80px 10%;
+    background-color: rgb(205, 77, 77);
+    text-align: center;
+}
+
+.projects h2 {
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+/* kontainer flexbox */
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+/* stylingf card */
+.projects-card {
+   display: flex;
+   align-items: center;
+   gap: 50px;
+   max-width: 1000px;
+   width: 100%;
+   background-color: transparent;
+   box-sizing: border-box;
+}
+
+.projects-card img {
+    width: 375px;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+}
+
+.projects-info {
+    flex: 1;
+    text-align: justify;
+}
+
+.projects-info p {
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.8;
+    color: black;
+}
+
+/* responsif ketika laayra di perkecil */
+@media screen and (max-width: 768px) {
+    .projects-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .projects-card img {
+        width: 100%;
+        max-width: 320px;
+        border-radius: 25px;
+    }
+
+    .projects-info {
+        width: 100%;
+    }
+
+    .projects-info p{
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}
+
+/* Hobby */
+#Hobby {
+    background-color: rgb(205, 77, 77);
+    color: black;
+    padding: 60px 20px;
+    min-height: 100vh;
+}
+
+.hobby-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.hobby-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.hobby-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.hobby-card p {
+    line-height: 1.8;
+    font-size: 1.3rem;
+    text-align: justify;
+    padding: 0 10px;
+    margin: 0;
+}
