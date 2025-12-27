@@ -1,3 +1,7 @@
+    html {
+        scroll-behavior: smooth;
+    }
+
 * {
     margin: 0;
     padding: 0;
@@ -324,7 +328,7 @@ nav ul li {
 #Hobby {
     background-color: rgb(205, 77, 77);
     color: black;
-    padding: 60px 20px;
+    padding: 80px 20px;
     min-height: 100vh;
 }
 
@@ -333,29 +337,43 @@ nav ul li {
     justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 40px;
     max-width: 1200px;
+    width: 100%;
     margin: 40px auto;
 }
 
 .hobby-card {
     flex: 1;
-    min-width: 250px;
+    min-width: 300px;
     max-width: 350px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding: 20px;
     border-radius: 20px;
+
+    /* animasi masuk */
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
 }
+
+/* Delay animasi */
+.hobby-card:nth-child(1) { animation-delay: 0.2s;}
+.hobby-card:nth-child(2) { animation-delay: 0.4s;}
+.hobby-card:nth-child(3) { animation-delay: 0.6s;}
 
 .hobby-card img {
     width: 100%;
     height: 250px;
     object-fit: cover;
     border-radius: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.hobby-card:hover img {
+    transform: scale(1.05);
 }
 
 .section-title {
@@ -369,6 +387,159 @@ nav ul li {
     line-height: 1.8;
     font-size: 1.3rem;
     text-align: justify;
-    padding: 0 10px;
     margin: 0;
+}
+
+/* Keyframes Animasi */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contact */
+#Contact {
+    background-color: rgb(205, 77, 77);
+    color: black;
+    padding: 20px 20px 60px 20px;
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.contact-section {
+    padding: 80px 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.contact-title {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+    max-width: 100%;
+}
+
+.btn-kirim {
+    background-color: rgb(38, 128, 231);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-kirim:hover {
+    background-color: rgb(28, 100, 180);
+}
+
+/* Section contact responsif */
+@media (max-width: 768px) {
+    #Contact {
+        padding: 20px 15px 40px 15px;
+    }
+
+    .contact-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .contact-title {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .btn-kirim {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* Section Footer!!! */
+.main-footer {
+    background-color: red;
+    color: black;
+    padding: 30px 0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-content p{
+    margin-bottom: 15px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.MySocialMedia a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+    transition: color 0.3 ease;
+}
+
+.MySocialMedia a:hover {
+    color: rgb(194, 40, 40);
+    text-decoration: none;
+}
+
+/* Footer Responsif */
+@media ( max-width: 768px) {
+    .main-footer {
+        padding: 20px 10px;
+    }
+
+    .MySocialMedia a {
+        display: inline-block;
+        margin: 5px 10px;
+    }
 }
