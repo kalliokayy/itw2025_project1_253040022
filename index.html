@@ -97,26 +97,31 @@
             <div class="contact-container">
                 <h2 class="contact-title">Contact Me</h2>
 
-                <form action="#">
+                <form name="contact-form-web-porto">
                     <div class="form-group">
                         <label for="name">Nama Lengkap</label>
-                        <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap anda" required>
+                        <input type="text" id="name" name="nama lengkap" placeholder="Masukkan nama lengkap anda" required>
                     </div>
 
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" placeholder="Masukkan Email">
+                        <input type="email" placeholder="Masukkan Email" name="email">
                     </div>
 
                     <div class="form-group">
                         <label>Pesan</label>
-                        <textarea placeholder="Tulis Pesan Anda"></textarea>
+                        <textarea placeholder="Tulis Pesan Anda" name="pesan"></textarea>
                     </div>
 
-                    <button type="submit" class="btn-kirim">Kirim</button>
+                    <button type="submit" class="btn-kirim">
+                        <span class="btn-text">Kirim</span>
+                        <div class="loader-inline"></div>
+                    </button>
                 </form>  
             </div>
         </section>
+
+                
 
         <footer class="main-footer">
             <div class="footer-content">
@@ -129,5 +134,28 @@
         </footer>
 
     <script src="js/kay.js"></script>
+          <script>
+
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzdwQI8IpoiBuBr6luJB3t89NS5oBYrcklkraejSST8M38YQe9nhHlddHH9TL-YAg31cQ/exec'
+  const form = document.forms['contact-form-web-porto']
+  const btnKirim = document.querySelector('.btn-kirim');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    btnKirim.classList.add('is-loading');
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        btnKirim.classList.remove('is-loading');
+        form.reset();
+        console.log('Succes!, response');
+      })
+      .catch(error => {
+        btnKirim.classList.remove('is-loading');
+        console.error('Error!', error.message);
+      })
+  })
+
+</script>
+</script>
 </body>
 </html>

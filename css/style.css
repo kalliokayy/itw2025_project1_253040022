@@ -543,3 +543,26 @@ nav ul li {
         margin: 5px 10px;
     }
 }
+
+.loader-inline {
+    display: none;
+    width: 15px;
+    height: 15px;
+    border: 2px solid white;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: 10px;
+}
+
+.btn-kirim.is-loading .btn-text {
+    display: none;
+}
+
+.btn-kirim.is-loading .loader-inline {
+    display: inline-block;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg);}
+}
