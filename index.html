@@ -136,15 +136,15 @@
     <script src="js/kay.js"></script>
           <script>
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzdwQI8IpoiBuBr6luJB3t89NS5oBYrcklkraejSST8M38YQe9nhHlddHH9TL-YAg31cQ/exec'
-  const form = document.forms['contact-form-web-porto']
-  const btnKirim = document.querySelector('.btn-kirim');
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzdwQI8IpoiBuBr6luJB3t89NS5oBYrcklkraejSST8M38YQe9nhHlddHH9TL-YAg31cQ/exec'
+            const form = document.forms['contact-form-web-porto']
+            const btnKirim = document.querySelector('.btn-kirim');
 
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    btnKirim.classList.add('is-loading');
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => {
+       form.addEventListener('submit', e => {
+          e.preventDefault()
+          btnKirim.classList.add('is-loading');
+         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+       .then(response => {
         btnKirim.classList.remove('is-loading');
         form.reset();
         console.log('Succes!, response');
